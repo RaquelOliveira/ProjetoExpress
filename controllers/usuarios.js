@@ -4,9 +4,15 @@ module.exports = function(app) {
 
 	var UsuarioController = {
 		index: function(req, res){
-			res.render("usuarios/index");
+			Usuario.find(function(err,data){
+				if(err){
+					console.log(err);
+				}
+				res.render("usuarios/index",{lista : data});
+			});
+			
 		},
-
+		
 		create: function(req,res){
 			var model = new Usuario({
 				nome:'Raquel',
