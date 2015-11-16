@@ -10,11 +10,11 @@ module.exports = function(app) {
 				}
 				res.render("usuarios/index",{lista : data});
 			});
-			
+						
 		},
 		
 		create: function(req,res){
-			var model = new Usuario({
+			/*var model = new Usuario({
 				nome:'Raquel',
 				login: 'raquel',
 				senha: '123456'
@@ -26,15 +26,66 @@ module.exports = function(app) {
 				}else{
 					res.json(data);
 				}
-			})
+			})*/
+			res.render("usuarios/create");
 		},
 
-		lista : function(req,res){
-			Usuario.find(function(erro,data){
-				if(erro){
-					console.log(erro);
+		insert: function(req, res){
+			var model = new Usuario (req.body);
+			model.save(function(err){
+				if(err){
+					console.log(err);
 				}else{
-					res.json(data);
+					res.redirect('/usuarios');
+				}
+
+			});
+		},
+
+		edit: function(req,res){
+			Usuario.findById(req.params.id, function(err, data){
+				if(err){
+					console.log(err);
+				}else{
+					res.render('usuarios/edit', {value: data});
+				}
+			});
+		},
+
+		update: function(req,res){
+			Usuario.findById(req.params.id, function(err, data){
+				if(err){
+					console.log(err);
+				}else{
+					var model   = data;
+					model.nome  = req.body.nome;
+					model.login = req.body.login;
+					model.save(function(err){
+						if(err){
+							console.log(err);
+						}else{
+							res.redirect('/usuarios');
+						}						
+					});
+				}
+			});
+
+		},
+		show: function(req,res){
+			Usuario.findById(req.params.id, function(err, data){
+				if(err){
+					console.log(err);
+				}else{
+					res.render('usuarios/show', {value: data});
+				}
+			});
+		},
+		remove: function(req,res){
+			Usuario.remove({_id: req.params.id}, function(err){
+				if(err){
+					console.log(err);
+				}else{
+					res.redirect('/usuarios');
 				}
 
 			});
