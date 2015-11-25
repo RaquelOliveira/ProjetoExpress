@@ -32,14 +32,34 @@ module.exports = function(app) {
 
 		insert: function(req, res){
 			var model = new Usuario (req.body);
-			model.save(function(err){
+			Usuario.find({nome:req.body.nome}, function(err, data){
+				if(err){
+					console.log(err);
+				}else{
+					//res.render('usuarios/edit', {value: data});
+					if(data.length > 0){
+						res.render("usuarios/create", {value: "Usuario ja cad"});
+					}else{
+						model.save(function(err){
+							if(err){
+								console.log(err);
+							}else{
+								res.redirect('/usuarios');
+							}
+
+						});
+					}
+					
+				}
+			});
+			/*model.save(function(err){
 				if(err){
 					console.log(err);
 				}else{
 					res.redirect('/usuarios');
 				}
 
-			});
+			});*/
 		},
 
 		edit: function(req,res){
@@ -48,6 +68,7 @@ module.exports = function(app) {
 					console.log(err);
 				}else{
 					res.render('usuarios/edit', {value: data});
+					//res.json(data);
 				}
 			});
 		},
@@ -70,13 +91,14 @@ module.exports = function(app) {
 				}
 			});
 
-		},
+		},  
 		show: function(req,res){
 			Usuario.findById(req.params.id, function(err, data){
 				if(err){
 					console.log(err);
 				}else{
 					res.render('usuarios/show', {value: data});
+					//res.end('teste show');
 				}
 			});
 		},

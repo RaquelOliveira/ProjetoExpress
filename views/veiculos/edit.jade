@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+	h1 Cadastros de veículos
+	hr
+	
+	form(method="POST",action="/veiculos/edit/#{value._id}", role="form")
+		input(type="hidden" name="_method" value="put")
+		div(class="form-group")
+		label Modelo:
+		input(type="text", name="modelo", class="form-control",value="#{value.marca}")
+		div(class="form-group")
+		label Marca:
+		input(type="text", name="marca", class="form-control", value="#{value.modelo}")
+		div(class="form-group")
+		label Placa:
+		input(type="text", name="placa", class="form-control",value="#{value.placa}")
+		div(class="form-group")
+		label Cor:
+		input(type="text", name="cor", class="form-control", value="#{value.cor}")
+		div(class="form-group")
+		div(class="form-group")
+		input(type="hidden", name="id_usuario", value="#{value.id_usuario}",class="form-control")
+		div(class="form-group")
+		input(type="submit", value="Atualizar", class= "btn btn-success")
+		a(href="/usuarios/edit/#{value.id_usuario}" title="Voltar", class= "btn btn-warning") Voltar
