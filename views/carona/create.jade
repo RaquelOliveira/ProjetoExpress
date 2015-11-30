@@ -1,0 +1,39 @@
+extends ../layout
+
+block content
+	h1 Cadastros de carona
+	hr
+	
+	form(method="POST",action="/carona/", role="form")
+		div(class="form-group")
+		label Locais
+		input(type="text", name="locais", class="form-control")
+		div(class="form-group")
+		label Origem:
+		input(type="text", name="origem", class="form-control")
+		div(class="form-group")
+		label Destino:
+		input(type="text", name="destino", class="form-control")
+		div(class="form-group")
+		label Quantidade de vagas:
+		input(type="text", name="qtdVagas", class="form-control")
+		div(class="form-group")
+		label data
+		input(type="text", name="dat", class="form-control")
+		div(class="form-group")
+		label Horário
+		input(type="text", name="horario", class="form-control")
+		div(class="form-group")
+		label Placa:
+		input(type="text", name="placa", value="#{value[1].placa}" , class="form-control", readonly="true")
+		div(class="form-group")
+		label Nome do usuário:
+		input(type="text", name="nome", value="#{value[0].nome}" , class="form-control", readonly="true")
+		div(class="form-group")
+		div(class="form-group")
+		input(type="hidden", name="id_veiculo", value="#{value[1]._id}",class="form-control")
+		div(class="form-group")
+		input(type="hidden", name="id_usuario", value="#{value[0]._id}",class="form-control")
+		div(class="form-group")
+		input(type="submit", value="cadastrar", class= "btn btn-success")
+		a(href="/veiculos" title="Voltar", class= "btn btn-warning") Voltar

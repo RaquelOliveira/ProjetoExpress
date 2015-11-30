@@ -1,10 +1,9 @@
 extends ../layout
 
 block content
-	h1 Página Usuario
+	h1 Página de carona
 	hr
 	br
-	a(href="/usuarios/create" title="Cadastrar", class="btn btn-success") Cadastrar
 	br
 	if msgUpdate
 		div(class="alert alert-info")
@@ -13,23 +12,25 @@ block content
 	table(class="table")
 		thead
 			tr
-				th ID:
-				th Nome:
-				th Login:
-				th Senha:
-				th Data:
-				th Ações:
+				th Locais:
+				th Origem:
+				th Destino:
+				th qtdVagas:
+				th id_usuario:
 		tbody
 		each valor, i in lista
 			tr
-				td #{valor._id}
-				td #{valor.nome}
-				td #{valor.login}
-				td #{valor.senha}
-				td #{moment(valor.data_cad).format('DD/MM/YYYY - h:mm')}
+				td #{valor.locais}
+				td #{valor.origem}
+				td #{valor.destino}
+				td #{valor.qtdVagas}
+				td #{valor.id_usuario}
 				td
 					a(href="usuarios/edit/#{valor._id}", title="Editar", class="btn btn-info")
 						span(class="glyphicon glyphicon-pencil")
 					&nbsp
 					a(href="usuarios/show/#{valor._id}", title="Editar", class="btn btn-primary")
 						span(class="glyphicon glyphicon-search")
+					&nbsp
+					a(href="/carona/create/#{valor.id_usuario}" title="Cadastrar", class="btn btn-success") Cadastrar
+	

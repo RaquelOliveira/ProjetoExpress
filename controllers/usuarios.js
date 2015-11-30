@@ -1,6 +1,7 @@
 module.exports = function(app) {
 
 	var Usuario = app.models.usuarios;
+	var moment = require('moment');
 
 	var UsuarioController = {
 		index: function(req, res){
@@ -8,7 +9,7 @@ module.exports = function(app) {
 				if(err){
 					console.log(err);
 				}
-				res.render("usuarios/index",{lista : data});
+				res.render("usuarios/index",{lista : data, moment: moment});
 			});
 						
 		},
@@ -38,7 +39,7 @@ module.exports = function(app) {
 				}else{
 					//res.render('usuarios/edit', {value: data});
 					if(data.length > 0){
-						res.render("usuarios/create", {value: "Usuario ja cad"});
+						res.render("usuarios/create", {value: "Usuario ja cadastrado"});
 					}else{
 						model.save(function(err){
 							if(err){
