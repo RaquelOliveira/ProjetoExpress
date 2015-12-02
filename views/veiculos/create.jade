@@ -1,25 +1,26 @@
 extends ../layout
 
 block content
-	h1 Cadastros de veículos
+	h1 Cadastros de Veículos
 	hr
 	
 	form(method="POST",action="/veiculos", role="form")
 		div(class="form-group")
 		label Modelo:
-		input(type="text", name="modelo", class="form-control")
+		input(type="text", name="modelo", placeholder="Ex: Fiat Palio, Honda Civic...", required, class="form-control")
 		div(class="form-group")
 		label Marca:
-		input(type="text", name="marca", class="form-control")
+		input(type="text", name="marca", placeholder="Ex: Ford, Fiat, Kia...", required, class="form-control")
 		div(class="form-group")
 		label Placa:
-		input(type="text", name="placa", class="form-control")
+		input(type="text", name="placa", placeholder="KKY-5659, UKY-9999...", required, class="form-control")
 		div(class="form-group")
 		label Cor:
-		input(type="text", name="cor", class="form-control")
+		input(type="text", name="cor", placeholder="Cinza, Preto, Branco...", required, class="form-control")
 		div(class="form-group")
 		div(class="form-group")
 		input(type="hidden", name="id_usuario", value="#{value}",class="form-control")
 		div(class="form-group")
-		input(type="submit", value="cadastrar", class= "btn btn-success")
+		input(type="submit", value="Cadastrar", class= "btn btn-success")
+		&nbsp&nbsp
 		a(href="/veiculos" title="Voltar", class= "btn btn-warning") Voltar
