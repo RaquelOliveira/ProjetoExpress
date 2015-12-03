@@ -7,14 +7,13 @@ module.exports = function(app) {
 	var CaronaController = {
 
 		index: function(req, res){
+			var id = req.params.id;
 			carona.find(function(err,data){
 				if(err){
 					console.log(err);
 				}
 				res.render("carona/index",{lista : data});
 			});
-
-						
 		},
 
 		create: function(req,res){
@@ -29,6 +28,7 @@ module.exports = function(app) {
 								console.log(err);
 							} else {
 								data = data.concat(dataVeiculos);
+								console.log(data);
 								res.render("carona/create", {value : data});
 							}
 						});
@@ -43,6 +43,7 @@ module.exports = function(app) {
 
 		insert: function(req, res) {
 			var model = new carona ();
+			console.log(req.body);
 			model.locais = req.body.locais;
 			model.origem = req.body.origem;
 			model.destino = req.body.destino;
@@ -56,7 +57,13 @@ module.exports = function(app) {
 					if (err) {
 						console.log(err);
 					} else {
-						res.render("carona/create");
+						//s.render("carona/create");
+						carona.find(function(err,data){
+				if(err){
+					console.log(err);
+				}
+				res.render("carona/index",{lista : data});
+			});
 					}
 				});
 		},

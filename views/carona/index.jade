@@ -1,5 +1,4 @@
 extends ../layout
-
 block content
 	h1 Página de carona
 	hr
@@ -15,7 +14,7 @@ block content
 				th Locais:
 				th Origem:
 				th Destino:
-				th qtdVagas:
+				th Quantidade de vagas:
 				th id_usuario:
 		tbody
 		each valor, i in lista
@@ -25,12 +24,3 @@ block content
 				td #{valor.destino}
 				td #{valor.qtdVagas}
 				td #{valor.id_usuario}
-				td
-					a(href="usuarios/edit/#{valor._id}", title="Editar", class="btn btn-info")
-						span(class="glyphicon glyphicon-pencil")
-					&nbsp
-					a(href="usuarios/show/#{valor._id}", title="Editar", class="btn btn-primary")
-						span(class="glyphicon glyphicon-search")
-					&nbsp
-					a(href="/carona/create/#{valor.id_usuario}" title="Cadastrar", class="btn btn-success") Cadastrar
-	

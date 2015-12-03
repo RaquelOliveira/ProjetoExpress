@@ -4,7 +4,7 @@ block content
 	h1 Cadastros de carona
 	hr
 	
-	form(method="POST",action="/carona/", role="form")
+	form(method="POST",action="/carona", role="form")
 		div(class="form-group")
 		label Locais
 		input(type="text", name="locais", class="form-control")
@@ -36,4 +36,4 @@ block content
 		input(type="hidden", name="id_usuario", value="#{value[0]._id}",class="form-control")
 		div(class="form-group")
 		input(type="submit", value="cadastrar", class= "btn btn-success")
-		a(href="/veiculos" title="Voltar", class= "btn btn-warning") Voltar
+		a(href="/usuarios" title="Voltar", class= "btn btn-warning") Voltar
