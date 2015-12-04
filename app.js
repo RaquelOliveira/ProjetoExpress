@@ -34,7 +34,7 @@ if ('development' == app.get('env')) {
 load('models').then('controllers').then('routes').into(app);  
 
 app.listen(3000,function(){
-	console.log('Servisor rodando na porta 3000 ...');
+	console.log('Servidor iniciado e rodando na porta 3000...');
 });
 
 /*http.createServer(app).listen(app.get('port'), function() {

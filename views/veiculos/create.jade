@@ -1,22 +1,22 @@
 extends ../layout
 
 block content
-	h1 Cadastros de Veículos
+	h1 Cadastro de Veículos
 	hr
 	
 	form(method="POST",action="/veiculos", role="form")
 		div(class="form-group")
 		label Modelo:
-		input(type="text", name="modelo", placeholder="Ex: Fiat Palio, Honda Civic...", required, class="form-control")
+		input(type="text", name="modelo", placeholder="Digite um modelo de carro", required, pattern="[^0-9]*", title="Por favor, digite um modelo de carro válido. Ex: Fiat Palio, Honda Civic.", class="form-control")
 		div(class="form-group")
 		label Marca:
-		input(type="text", name="marca", placeholder="Ex: Ford, Fiat, Kia...", required, class="form-control")
+		input(type="text", name="marca", placeholder="Digite uma marca de carro", required, pattern="[^0-9]*", title="Por favor, digite uma marca de carro válido. Ex: Ford, Fiat, Kia.", class="form-control")
 		div(class="form-group")
 		label Placa:
-		input(type="text", name="placa", placeholder="KKY-5659, UKY-9999...", required, class="form-control")
+		input(type="text", name="placa", placeholder="Digite uma placa de carro", required, pattern="([A-Z][A-Z][A-Z])-([0-9][0-9][0-9][0-9])", title="Por favor, digite um modelo de carro válido. Ex: KKY-5659, UKY-9999.", class="form-control")
 		div(class="form-group")
 		label Cor:
-		input(type="text", name="cor", placeholder="Cinza, Preto, Branco...", required, class="form-control")
+		input(type="text", name="cor", placeholder="Digite uma cor de carro", required, pattern="[^0-9]*", title="Por favor, digite um modelo de carro válido. Ex: Cinza, Preto, Branco.", class="form-control")
 		div(class="form-group")
 		div(class="form-group")
 		input(type="hidden", name="id_usuario", value="#{value}",class="form-control")

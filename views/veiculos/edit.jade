@@ -8,16 +8,16 @@ block content
 		input(type="hidden" name="_method" value="put")
 		div(class="form-group")
 		label Modelo:
-		input(type="text", name="modelo", class="form-control",value="#{value.marca}")
+		input(type="text", name="modelo", placeholder="Digite um modelo de carro", required, pattern="[^0-9]*", title="Por favor, digite um modelo de carro válido. Ex: Fiat Palio, Honda Civic.", class="form-control",value="#{value.marca}")
 		div(class="form-group")
 		label Marca:
-		input(type="text", name="marca", class="form-control", value="#{value.modelo}")
+		input(type="text", name="marca", placeholder="Digite uma marca de carro", required, pattern="[^0-9]*", title="Por favor, digite uma marca de carro válido. Ex: Ford, Fiat, Kia.", class="form-control", value="#{value.modelo}")
 		div(class="form-group")
 		label Placa:
-		input(type="text", name="placa", class="form-control",value="#{value.placa}")
+		input(type="text", name="placa", placeholder="Digite uma placa de carro", required, pattern="([A-Z][A-Z][A-Z])-([0-9][0-9][0-9][0-9])", title="Por favor, digite um modelo de carro válido. Ex: KKY-5659, UKY-9999.", class="form-control",value="#{value.placa}")
 		div(class="form-group")
 		label Cor:
-		input(type="text", name="cor", class="form-control", value="#{value.cor}")
+		input(type="text", name="cor", placeholder="Digite uma cor de carro", required, pattern="[^0-9]*", title="Por favor, digite um modelo de carro válido. Ex: Cinza, Preto, Branco.", class="form-control", value="#{value.cor}")
 		div(class="form-group")
 		div(class="form-group")
 		input(type="hidden", name="id_usuario", value="#{value.id_usuario}",class="form-control")

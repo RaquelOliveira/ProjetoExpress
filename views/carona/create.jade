@@ -7,27 +7,27 @@ block content
 	form(method="POST",action="/carona", role="form")
 		div(class="form-group")
 		label Locais
-		input(type="text", name="locais", class="form-control")
+		input(type="text", name="locais", placeholder="Digite o local de encontro", required, pattern="[^0-9]*", title="Por favor, digite um local válido. Ex: Praça do Derby", class="form-control")
 		div(class="form-group")
 		label Origem:
-		input(type="text", name="origem", class="form-control")
+		input(type="text", name="origem", placeholder="Digite o local de saída da carona", required, pattern="[^0-9]*", title="Por favor, digite um local de saída válido. Ex: AESO", class="form-control")
 		div(class="form-group")
 		label Destino:
-		input(type="text", name="destino", class="form-control")
+		input(type="text", name="destino", placeholder="Digite o local de chegada da carona", required, pattern="[^0-9]*", title="Por favor, digite um local de chegada válido. Ex: Carrefour", class="form-control")
 		div(class="form-group")
-		label Quantidade de vagas:
-		input(type="text", name="qtdVagas", class="form-control")
+		label Quantidade de Vagas:
+		input(type="text", name="qtdVagas", placeholder="Digite a quantidade de vagas no veículo", required, pattern="[0-9]{1}", title="Por favor, digite a quantidade de vagas em aberto no veículo. Ex: 3" class="form-control")
 		div(class="form-group")
-		label data
-		input(type="text", name="dat", class="form-control")
+		label Data:
+		input(type="text", name="dat", placeholder="Digite a data da carona", required, pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}", title="Por favor, digite uma data válida. Ex: 03/12/2015" class="form-control")
 		div(class="form-group")
-		label Horário
-		input(type="text", name="horario", class="form-control")
+		label Horário:
+		input(type="text", name="horario", placeholder="Digite a hora da carona", required, pattern="(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9])", title="Por favor, digite um horário válido. Ex: 20:19", class="form-control")
 		div(class="form-group")
 		label Placa:
 		input(type="text", name="placa", value="#{value[1].placa}" , class="form-control", readonly="true")
 		div(class="form-group")
-		label Nome do usuário:
+		label Nome do Usuário:
 		input(type="text", name="nome", value="#{value[0].nome}" , class="form-control", readonly="true")
 		div(class="form-group")
 		div(class="form-group")
@@ -35,5 +35,6 @@ block content
 		div(class="form-group")
 		input(type="hidden", name="id_usuario", value="#{value[0]._id}",class="form-control")
 		div(class="form-group")
-		input(type="submit", value="cadastrar", class= "btn btn-success")
+		input(type="submit", value="Cadastrar", class= "btn btn-success")
+		&nbsp&nbsp
 		a(href="/usuarios" title="Voltar", class= "btn btn-warning") Voltar

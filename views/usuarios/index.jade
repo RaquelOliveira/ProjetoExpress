@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-	h1 Página do Usuario
+	h1 Painel de Usuarios
 	hr
 	br
 	a(href="/usuarios/create" title="Cadastrar", class="btn btn-success") Cadastrar
@@ -13,7 +13,6 @@ block content
 	table(class="table")
 		thead
 			tr
-				th ID:
 				th Nome:
 				th Login:
 				th Senha:
@@ -22,7 +21,6 @@ block content
 		tbody
 		each valor, i in lista
 			tr
-				td #{valor._id}
 				td #{valor.nome}
 				td #{valor.login}
 				td #{valor.senha}
@@ -31,5 +29,8 @@ block content
 					a(href="usuarios/edit/#{valor._id}", title="Editar", class="btn btn-info")
 						span(class="glyphicon glyphicon-pencil")
 					&nbsp
-					a(href="usuarios/show/#{valor._id}", title="Editar", class="btn btn-primary")
-						span(class="glyphicon glyphicon-search")
+					a(href="usuarios/show/#{valor._id}", title="Apagar", class="btn btn-primary")
+						span(class="glyphicon glyphicon-erase")
+					&nbsp
+					a(href="carona/create/#{valor._id}" title="Cadastrar carona", class="btn btn-success") Cadastrar Carona
+					

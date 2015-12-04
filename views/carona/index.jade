@@ -1,6 +1,6 @@
 extends ../layout
 block content
-	h1 Página de carona
+	h1 Painel de Caronas
 	hr
 	br
 	br
@@ -15,6 +15,10 @@ block content
 				th Origem:
 				th Destino:
 				th Quantidade de vagas:
+				th Data:
+				th Horario:
+				th Placa:
+				th Nome do Motorista:
 				th id_usuario:
 		tbody
 		each valor, i in lista
@@ -23,4 +27,8 @@ block content
 				td #{valor.origem}
 				td #{valor.destino}
 				td #{valor.qtdVagas}
+				td #{valor.dat}
+				td #{valor.horario}
+				td #{valor.placa}
+				td #{valor.nome}
 				td #{valor.id_usuario}
